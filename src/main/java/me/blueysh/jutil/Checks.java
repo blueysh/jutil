@@ -42,4 +42,54 @@ public class Checks {
         }
         return false;
     }
+
+    /**
+     * Tests whether a given number is within a certain range.
+     * @param min The minimum number in the range.
+     * @param max The maximum number in the range.
+     * @return Whether the given number is in range.
+     */
+    public static boolean inRange(int min, int max, int num) {
+        return (num >= min && num <= max);
+    }
+
+    /**
+     * Tests whether a given number is within a certain range.
+     * @param min The minimum number in the range.
+     * @param max The maximum number in the range.
+     * @return Whether the given number is in range.
+     */
+    public static boolean inRange(float min, float max, float num) {
+        return (num >= min && num <= max);
+    }
+
+    /**
+     * Tests whether a given number is within a certain range, and executes a callback if the test fails.
+     * @param min The minimum number in the range.
+     * @param max The maximum number in the range.
+     * @param callback The callback to execute if the test fails.
+     * @return Whether the given number is in range.
+     */
+    public static boolean inRange(int min, int max, int num, Runnable callback) {
+        if (!inRange(min, max, num)) {
+            callback.run();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Tests whether a given number is within a certain range, and executes a callback if the test fails.
+     * @param min The minimum number in the range.
+     * @param max The maximum number in the range.
+     * @param callback The callback to execute if the test fails.
+     * @return Whether the given number is in range.
+     */
+    public static boolean inRange(float min, float max, float num, Runnable callback) {
+        if (!inRange(min, max, num)) {
+            callback.run();
+            return false;
+        }
+        return true;
+    }
 }

@@ -26,4 +26,12 @@ public class JutilTests {
         assertTrue(Checks.isNull(o));
         assertTrue(Checks.isNull(o, () -> System.out.println("Callback test")));
     }
+
+    @Test
+    void testInRange() {
+        assertFalse(Checks.inRange(1, 5, 6));
+        assertTrue(Checks.inRange(1, 6, 3));
+        assertFalse(Checks.inRange(5, 7, 4));
+        assertTrue(Checks.inRange(49, 105, 55));
+    }
 }
